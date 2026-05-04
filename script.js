@@ -9,14 +9,13 @@ const getSum = () => {
 	prices.forEach(function(price){
 		total += Number(price.textContent.trim());
 	})
-	let table = document.getElementById("grocery-table");
-	let tr = document.createElement("tr");
-	let td = document.createElement("td");
-	td.innerText = "Total:"+total;
-	td.colSpan = 2;
-	tr.appendChild(td);
-    table.appendChild(tr);
-	
+	let ans = document.getElementById("ans");
+	if(!ans){
+		ans = document.createElement("h3");
+		ans.id = "ans";
+		document.body.appendChild(ans);
+	}
+	ans.textContent = total;	
 };
 
 getSumBtn.addEventListener("click", getSum);
